@@ -5,14 +5,14 @@ Install-Module -Name ExchangeOnlineManagement
 Import-Module ExchangeOnlineManagement
 
 #S'authentifier
-Connect-ExchangeOnline -UserPrincipalName itadm_leroux@wabtec.com
+Connect-ExchangeOnline -UserPrincipalName nom.prenom@mail.com
 
 #Import de la liste et ajout à la liste de diffusion
-$import = Import-Csv "C:\temp\users_vad.csv"
+$import = Import-Csv "C:\temp\users_xxx.csv"
 $import | foreach { 
     try {
 		write-host ajout de $_.email
-		Add-DistributionGroupMember -Identity "FAV-users_vad@wabtec.com" -Member $_.email -ErrorAction Stop -ErrorVariable errorajout
+		Add-DistributionGroupMember -Identity "listediffusion@mail.com" -Member $_.email -ErrorAction Stop -ErrorVariable errorajout
     }
     catch { 
 	    Write-Host "erreur:" $_.exception.message -ForegroundColor Red
